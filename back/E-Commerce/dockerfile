@@ -1,0 +1,36 @@
+# Build stage
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Install EF Core tools
+RUN dotnet tool install --global dotnet-ef
+ENV PATH="${PATH}:/root/.dotnet/tools"
+
+# Create Uploads directory at root level
+RUN mkdir -p /app/Uploads && chmod 777 /app/Uploads
+
+# Copy ONLY the .csproj file
+COPY E-Commerce.csproj .
+RUN dotnet restore
+
+# Copy remaining files
+COPY . .
+RUN dotnet publish -c Release -o /app/publish
+
+# Create migration bundle
+RUN dotnet ef migrations bundle --configuration Release -o /app/publish/migrate
+
+# Runtime stage
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+COPY --from=build /app/publish .
+
+# Copy migration script
+COPY wait-for-it.sh ./
+RUN chmod +x ./wait-for-it.sh
+
+ENV ASPNETCORE_URLS=http://+:80
+EXPOSE 80
+
+# Use the wait script before starting the application
+ENTRYPOINT ["./wait-for-it.sh", "db:1433", "--", "dotnet", "E-Commerce.dll"]

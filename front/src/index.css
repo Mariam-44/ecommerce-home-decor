@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* .form-control{
+       @apply w-full border border-gray-300 rounded  placeholder-slate-500 pb-1  ps-3
+    }
+  */
+  .btn {
+    @apply px-4 py-1 bg-primary-300 rounded-md w-full hover:bg-slate-400 transition-colors duration-300;
+  }
+  .form-control {
+    @apply w-full px-2 py-1 rounded-md border-2 border-gray-400 placeholder:text-sm border-opacity-50 focus:outline-none ;
+  }
+  .sign-form {
+    @apply px-1 bg-white border rounded-md border-slate-600 border-opacity-55 focus:outline-none focus:border-black;
+  }
+  .sign-btn {
+    @apply px-12 py-2 bg-black text-white text-xs w-full rounded-md border border-transparent hover:bg-white hover:text-black hover:border-black;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border: none;
+}
+
+table th,
+table td {
+  border: none;
+}

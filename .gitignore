@@ -1,0 +1,60 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Docker volumes and data
+**/data/
+docker-data/
+
+# SQL Server backups
+*.bak
+
+# Environment files
+.env
+.env.docker
+docker.env
+
+# Visual Studio Code workspace settings
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Visual Studio files
+*.user
+*.userosscache
+*.dbmdl
+*.jfm
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.vs/
+
+# Uploads directory
+**/Uploads/*
+!**/Uploads/.gitkeep
+
+# Dependencies and build outputs
+node_modules/
+dist/
+dist-ssr/
+bin/
+obj/
+
+# Local files
+*.local
+
+# IDE and editor directories
+.idea
+
+# OS/System specific files
+.DS_Store
+Thumbs.db
