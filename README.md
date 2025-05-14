@@ -12,13 +12,12 @@ This e-commerce platform is designed specifically for home decor products, provi
 - **Account Management**: User registration and login with secure authentication
 - **Product Browsing**: View all products with filtering by categories
 - **Product Details**: Detailed product information and images
-- **Shopping Cart**: Add/remove items to cart, update quantities
+- **Shopping Cart**: Add/remove items to cart, update quantities (requires authentication)
 - **Wishlist**: Save favorite products for later (requires authentication)
 - **Checkout Process**: Complete purchase with shipping and payment details
 
 ### Technical Features
 - **JWT Authentication**: Secure API endpoints with token-based authentication
-- **Responsive Design**: Works on mobile, tablet, and desktop devices
 - **Real-time Data**: API integration for product information
 - **Data Persistence**: SQL Server database for storing product and user data
 - **Containerized Architecture**: Docker and Docker Compose for easy setup and deployment
@@ -158,9 +157,10 @@ Once all containers are up and running:
 3. To add items to cart or wishlist, you'll need to create an account or login
 
 ### Creating an Account
-1. Click on the "Sign Up" link in the navigation
-2. Fill in the required information
-3. Submit the form to create your account
+1. Click on the person icon located in the navigation bar.
+2. Click on the "Create Account" button that appears.
+3. Fill in the required information
+4. Submit the form to create your account
 
 ### Shopping
 1. Browse products on the home page or by category
